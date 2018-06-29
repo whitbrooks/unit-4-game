@@ -8,54 +8,74 @@
     <!-- Bootstrap CSS -->
     <!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css" /> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
    
-    <title>Crystals Collector</title>
+    <title>Animal Game</title>
   
 </head>
   <body>
 
     <div class="jumbotron jumbotron-fluid">
             <div class="container">
-                <h1 class="display-4">Crystals Collector</h1>
-                <p class="lead">Like Blackjack, but with pretty crystals!</p>
+                <h1 class="display-4">Animal Game</h1>
+                <p class="lead">Like Blackjack, but with cute animals!</p>
             </div>
     </div>
     
     <div class="container">
     
-        <div class="row">
+        <div class="row" id="instructions">
             <h2>Instructions:</h2>
             <ol>
                 <li>You will be given a random number at the start of the game.</li>
-                <li>There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score.</li>
+                <li>There are four animals below. By clicking on an animal you will add a specific amount of points to your total score.</li>
                 <li>You win the game by matching your total score to the random number. You lose the game if your score exceeds the random number.</li>
-                <li>The value of each crystal is hidden from you until you click on it.</li>
-                <li>Each time the game restarts, new values will be given to each crystal.</li>
+                <li>The value of each animal is hidden from you until you click on it.</li>
+                <li>Each time the game restarts, new values will be given to each animal.</li>
             </ol>
         </div>
 
+        <br>
+
         <div class="row">
-            <div class="col-med-6 col-sm-12"></div>
-            <div id="randomNumber">blah</div>
+            <div class="col-sm-6 col-md-3" id="randomNumber">Number</div>
+            <div class="col-sm-6 col-md-3" id="scores">
+                <div id="wins">Wins:</div>
+                <div id="loses">Loses:</div>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div class="card" style="width: 14rem;">
+                <img class="card-img-top" src="assets/images/donkey-on-beach_925x.jpg" alt="Donkey">
+            </div>
+            <div class="card" style="width: 14rem;">
+                <img class="card-img-top" src="assets/images/cattle-resting-on-farm_925x.jpg" alt="Cow">
+            </div>
+            <div class="card" style="width: 14rem;">
+                <img class="card-img-top" src="assets/images/petting-zoo-goat_925x.jpg" alt="Goat">
+            </div>
+            <div class="card" style="width: 14rem;">
+                <img class="card-img-top" src="assets/images/speckled-hen_925x.jpg" alt="Hen">
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div class="col-sm-6 col-md-3">Your Score</div>
         </div>
 
         <div class="row">
-
-        </div>
-
-        <div class="row">
-
-        </div>
-
-        <div class="row">
-
+            <div class="col-sm-6 col-md-3" id="myNumber"></div>
         </div>
 
     </div>
 
-    <div id="crystals">
-    </div>
+    
+    
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
