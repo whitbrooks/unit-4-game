@@ -53,3 +53,10 @@ div {
     outline-style: outset;
     margin: 5px 5px 5px 5px;
 }
+
+body {
+    background-image: url("../images/dry-cornfield-close-up_4460x4460.jpg");
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-attachment: fixed;
+}

@@ -21,21 +21,60 @@ var losses = 0;
 
 // FUNCTIONS
 function reset() {
-  dealerNumber = 0;
+  dealerNumber = "";
   yourScore = 0;
-  donkey = 0;
+  donkey = "";
   dclick = 0;
-  cow = 0;
+  cow = "";
   cclick = 0;
-  goat = 0;
+  goat = "";
   gclick = 0;
-  hen = 0;
-  hclick = 0;
+  hen = "";
+  hclick = "";
+  wins = "";
+  losses = "";
   $("#randomNumber").html(dealerNumber);
   $("#myNumber").html(yourScore);
 }
 
-// // load html before running script
+function dealerReset() {
+  dealerNumber = dealerArray[Math.floor(Math.random()*dealerArray.length)];
+  $("#randomNumber").html(dealerNumber);
+}
+
+function winCheck() {
+  // Check if "your score" equals or exceeds computer selection. Keep score of wins and loses.
+  if (yourScore==dealerNumber) {
+    console.log("you win")
+    wins++;
+    $("#wins").html("Wins: " + wins);
+    reset();
+    dealerReset();
+
+    } else if (yourScore>dealerNumber) {
+          console.log("you lose")
+          losses++; 
+          $("#losses").html("Losses: " + losses);
+          reset();
+          dealerReset();
+        }
+
+  // // Cap wins and loses at 10
+  // if (wins == 5) {
+  //   reset();
+  //   dealerReset();
+  //   $("#wins").html("Wins:" + wins);
+  // }
+  // if (losses == 5) {
+  //   reset();
+  //   dealerReset();
+  //   $("#losses").html("Losses:" + losses);
+  // }
+}
+
+
+
+// load html before running script
 $(document).ready(function() {
 
   // Generate array of options for "dealer" between 19 - 120
@@ -52,9 +91,8 @@ $(document).ready(function() {
   $("#start").click(function() {
   
     // select and display random number for dealer
-    var dealerNumber = dealerArray[Math.floor(Math.random()*dealerArray.length)];
-      $("#randomNumber").html(dealerNumber);
-  
+    dealerReset();
+   
   });
 
   // Create on-click events for each animal button that increase "your score"
@@ -73,8 +111,9 @@ $(document).ready(function() {
         donkey = parseInt(donkey);
         yourScore += donkey;
         $("#myNumber").html(yourScore); 
+        winCheck()
       }
-      
+    
   });
 
   $("#Cow").on("click", function() {
@@ -92,8 +131,9 @@ $(document).ready(function() {
         cow = parseInt(cow);
         yourScore += cow;
         $("#myNumber").html(yourScore); 
+        winCheck()
       }
-      
+    
   });
   
 
@@ -112,8 +152,9 @@ $(document).ready(function() {
         goat = parseInt(goat);
         yourScore += goat;
         $("#myNumber").html(yourScore); 
+        winCheck()
       }
-      
+    
   });
 
   $("#Hen").on("click", function() {
@@ -131,28 +172,8 @@ $(document).ready(function() {
         hen = parseInt(hen);
         yourScore += hen;
         $("#myNumber").html(yourScore); 
+        winCheck()
       }
-      
-  });
-  // Check if "your score" equals or exceeds computer selection. Keep score of wins and loses.
-  if (yourScore==dealerNumber) {
-    wins++;
-    reset();
-    
-  } else if (yourScore>=dealerNumber) {
-        losses++; 
-        reset();
-      
-    }
-
-    // Cap wins and loses at 10
-    
-  if (wins == 10) {
-    reset();
-  }
-
-  if (losses == 10) {
-    reset();
-  }
+  });    
 
 });
